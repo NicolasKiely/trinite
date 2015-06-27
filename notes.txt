@@ -1,0 +1,30 @@
+CREATE db <name>;
+
+##################################
+# Creating tables:
+
+CREATE
+TABLE <name>(<columns>)
+INHERIT FROM (parent table)
+
+##################################
+# Inserting data:
+
+INSERT INTO
+    <db name>
+AGENT
+    <table name>(<columns>) VALUES (<agent values>)
+PATHS
+    <table name>(<columns>) VALUES (<stage values>),
+    <table name>(<columns>) VALUES (<stage values>),
+    ...
+    
+##################################
+# Selecting data:
+
+SELECT
+    <column fields>
+FROM
+    <db name>
+WHERE
+    [AGENT|PATH].<table name>.<field> <comparison> ...
