@@ -11,7 +11,7 @@
 struct Lexical {
     char *pBuf;
     int bufSize;
-    int strlen;
+    int strLen;
 
     struct Lexical *pNext;
 };

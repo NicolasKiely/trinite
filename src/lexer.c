@@ -11,13 +11,13 @@ struct Lexical *new_Lexical(int initSize, struct Lexical *pParent){
     if (pLex == NULL){ return NULL; }
 
     /* Initialize internal variables */
-    pLex->strlen = 0;
+    pLex->strLen = 0;
     pLex->pNext = 0;
 
     pLex->bufSize = (initSize < 0) ? LEXICAL_BUFFER_SIZE : initSize;
     if (pLex->bufSize > 0){
         /* Initialize new string buffer */
-        pLex->pBuf = calloc(initSize, sizeof(char));
+        pLex->pBuf = calloc(pLex->bufSize, sizeof(char));
         if (pLex->pBuf == NULL){
             /* Failed to allocate memory */
             pLex->bufSize = 0;
@@ -47,7 +47,7 @@ void free_Lexical(struct Lexical **ppLex){
 
     /* Clean internal fields */
     pLex->bufSize = 0;
-    pLex->strlen = 0;
+    pLex->strLen = 0;
     if (pLex->pBuf != NULL){
         free(pLex->pBuf);
         pLex->pBuf = NULL;
