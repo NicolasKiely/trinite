@@ -30,6 +30,13 @@ struct Lexical *new_Lexical(int initSize, struct Lexical *pParent){
         pLex->pBuf = NULL;
     }
 
+    /* Add new struct to parent if given */
+    if (pParent != NULL){
+        /* Drop old child struct */
+        free_Lexical(pParent->pNext);
+        pParent->pNext = pLex;
+    }
+
     return pLex;
 }
 
