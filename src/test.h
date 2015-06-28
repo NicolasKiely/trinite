@@ -1,6 +1,9 @@
 /**
  * Self-contained testing functions
  */
+#ifndef TEST_H
+#define TEST_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -78,3 +81,5 @@ int registerSuccess(char *arg0){
     
     return EXIT_SUCCESS;
 }
+
+#endif

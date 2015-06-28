@@ -1,3 +1,6 @@
+testing: valgrind --leak-check=yes <prog> <args>
+git pull/push origin master
+
 CREATE db <name>;
 
 ##################################
