@@ -1,4 +1,5 @@
 cc=gcc -Wall -Wpedantic
+vg=valgrind --leak-check=yes --error-exitcode=1
 
 ###############################################################################
 # Primary Targets
@@ -14,7 +15,7 @@ bin/trinite: src/main.c test/lexer.pass
 
 test/lexer.pass: src/test_lexer.c obj/lexer.o
 	$(cc) -o test/lexer src/test_lexer.c obj/lexer.o
-	test/lexer
+	$(vg) test/lexer
 
 
 
