@@ -33,7 +33,7 @@ struct Lexical *new_Lexical(int initSize, struct Lexical *pParent){
     /* Add new struct to parent if given */
     if (pParent != NULL){
         /* Drop old child struct */
-        free_Lexical(pParent->pNext);
+        free_Lexical(&pParent->pNext);
         pParent->pNext = pLex;
     }
 
@@ -65,4 +65,23 @@ void free_Lexical(struct Lexical **ppLex){
 
     /* Zero out pointer */
     *ppLex = NULL;
+}
+
+
+struct Lexical *weakParseString_Lexical(char *str, int n){
+    struct Lexical *pLex=NULL;
+    int i=0;
+    char c;
+
+    /* Loop over n characters, if n is positive */
+    for (i=0; n<=0 || i<n; i++){
+        c = str[i];
+
+        /* Check for null terminator, if fixed length not given */
+        if (n<=0 && c=='\0'){ break; }
+
+        /* Lexical logic */
+    }
+
+    return pLex;
 }
