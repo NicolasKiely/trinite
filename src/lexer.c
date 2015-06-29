@@ -53,12 +53,15 @@ void free_Lexical(struct Lexical **ppLex){
     }
 
     /* Clean internal fields */
-    pLex->bufSize = 0;
-    pLex->strLen = 0;
     if (pLex->pBuf != NULL){
-        free(pLex->pBuf);
+        if (pLex->bufSize > 0){
+            /* Only clear if bufsize set */
+            free(pLex->pBuf);
+        }
         pLex->pBuf = NULL;
     }
+    pLex->bufSize = 0;
+    pLex->strLen = 0;
 
     /* Clean self */
     free(pLex);
@@ -81,6 +84,7 @@ struct Lexical *weakParseString_Lexical(char *str, int n){
         if (n<=0 && c=='\0'){ break; }
 
         /* Lexical logic */
+        /* TODO */
     }
 
     return pLex;
